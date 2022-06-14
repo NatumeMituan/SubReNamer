@@ -1,0 +1,44 @@
+﻿<Window x:Class="SubReNamer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SubReNamer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="Auto" d:DesignHeight="464.325" d:DesignWidth="844.647">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Preview" Margin="5" Click="PreviewClick"/>
+            <Button Content="Apply" Margin="5"  Click="ApplyClick" Grid.Column="1"/>
+        </Grid>
+        <DataGrid Grid.Row="1" Name="DataGridNames" AllowDrop="True" Drop="DataGridNamesDrop" Margin="5" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Video Names" Binding="{Binding VideoName}" Width="*"/>
+                <DataGridTextColumn Header="Subtitle Names" Binding="{Binding SubName}" Width="*"/>
+                <DataGridTextColumn Header="New Subtitle Names" Binding="{Binding NewSubName}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label >Suffix:</Label>
+            <TextBox Grid.Column="1" x:Name="suffixTextBox" VerticalAlignment="Center"/>
+        </Grid>
+
+    </Grid>
+
+</Window>
